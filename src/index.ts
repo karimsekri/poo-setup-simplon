@@ -2,6 +2,8 @@ import {Voiture} from "./Voiture";
 import { Conducteur } from "./Conducteur";
 import { Joueur } from "./Joueur";
 import { Equipe } from "./Equipe";
+import { Match } from "./Match";
+import {Tournoi} from "./Tournoi4Equipes";
 // class Pomme {
 //     public name: string
 //     private _color: string
@@ -78,9 +80,30 @@ const joueur1 = new Joueur("karim","sekri",42);
 const joueur2 = new Joueur("thomas","laforge",33);
 const joueur3 = new Joueur("Bruno","dupond",20);
 const joueur4 = new Joueur("fabrice","lecoq",60);
+const joueur5 = new Joueur("tiphaine","blouse",50);
+const joueur6 = new Joueur("alex","lebleu",40);
+const joueur7 = new Joueur("marie","lerouge",80);
+const joueur8 = new Joueur("chris","lenoir",54);
 
 
-const equipe1 = new Equipe([joueur1,joueur2]);
-const equipe2 = new Equipe([joueur3,joueur4]);
+const equipe1 = new Equipe("équipe1",[joueur1,joueur2]);
+const equipe2 = new Equipe("équipe2",[joueur3,joueur4]);
+const equipe3 = new Equipe("équipe3",[joueur5,joueur6]);
+const equipe4 = new Equipe("équipe4",[joueur7,joueur8]);
 
-console.log(equipe1.afficherNbreJoueur());
+//console.log(equipe1.afficherNbreJoueur());
+
+
+//1 - Créer un match de basket entre deux équipes de deux joueurs chacune
+// const match1 = new Match(equipe1,equipe2);
+// console.log("Score Initial",match1.scoreDuMatch);
+// match1.simulationScore();
+// console.log("Score Final",match1.scoreDuMatch);
+// console.log("l'équipe",match1.AGagneLeMatch().nomEquipe,"a gagnée");
+// console.log("les joueurs de l'quipe gagnante sont : ", match1.AGagneLeMatch().joueurs)
+
+
+//2 - Créer un tournoi avec 4 équipes
+const tournoi = new Tournoi(equipe1,equipe2,equipe3,equipe4) as Tournoi;
+tournoi.simulerTournoi();
+tournoi.afficherResultat();
